@@ -3,7 +3,7 @@ services:
   # Spring Boot Application
   spring-boot-app:
     image: Back-end Project
-    build: ./Back-end Project/app
+    build: ./Back-end Project
     ports:
       - "0.0.0.0:8081:8081"
     environment:
