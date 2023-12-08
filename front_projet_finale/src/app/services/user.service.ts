@@ -10,7 +10,7 @@ import { Registerrequest } from './registerrequest';
   providedIn: 'root'
 })
 export class UserService {
-  private url = "http://localhost:8080/api/user";
+  private url = "http://localhost:8081/api/user";
  
   constructor(private http: HttpClient, private user: AccountService) { }
 

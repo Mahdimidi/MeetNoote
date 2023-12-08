@@ -10,7 +10,7 @@ import { Registerrequest } from './registerrequest';
   providedIn: 'root'
 })
 export class AuthentificationService {
-  private apiUrl = 'http://localhost:8080/api/user';
+  private apiUrl = 'http://localhost:8081/api/user';
   private authTokenKey = 'authToken';
 
 

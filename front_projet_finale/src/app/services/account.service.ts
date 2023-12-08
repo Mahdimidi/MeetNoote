@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 //de l'authentification de l'utilisateur et de la récupération des informations de l'utilisateur actuel.
 export class AccountService {
   // Il s'agit d'une propriété privée qui contient l'URL du point de terminaison de l'API utilisateur.
-  private url: string = "http://localhost:8080/api/user";
+  private url: string = "http://localhost:8081/api/user";
   // Il s'agit du nom utilisé pour stocker le jeton dans le stockage de session.
   private sessionTokenName = "Token";
   //Le constructeur injecte le HttpClientservice, qui est utilisé pour faire des requêtes HTTP.
