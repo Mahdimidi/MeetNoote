@@ -1,0 +1,35 @@
+version: "3"
+services:
+  # Spring Boot Application
+  spring-boot-app:
+    image: Back-end Project
+    build: ./Back-end Project/app
+    ports:
+      - "0.0.0.0:8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:8000/projet_pds
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=mahdi
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - postgres
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: projet_pds
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '0.0.0.0:8000:8000'
+    volumes:
+      - projet_pds:/var/lib/postgresql/data
+
+  # Angular Frontend Application
+  front:
+    image: front_projet_finale
+    build: ./front_projet_finale
+
