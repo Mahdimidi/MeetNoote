@@ -4,7 +4,7 @@ RUN mkdir -p /app
 
 WORKDIR /app
 
-COPY target/*.jar /app/app.jar
+COPY target/projet_Backend-0.0.1-SNAPSHOT.jar /app/app.jar
 
 EXPOSE 8082
 
