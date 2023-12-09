@@ -17,18 +17,18 @@ pipeline {
             }
         }
         
-        stage ("Generate meetBoard/Back-end Project image") {
+        stage ("Generate meetnote/Back-end Project image") {
             steps {
-                dir("meetBoard/Back-end Project"){ 
+                dir("MeetNoote/Back-end Project"){ 
                     sh "mvn clean install"
                     sh "docker build -t back-i ."
                 }
             }
         }
         
-        stage ("Generate meetBoard/projet_angular image") {
+        stage ("Generate MeetNoote/projet_angular image") {
             steps {
-                dir("meetBoard/projet_angular"){ 
+                dir("MeetNoote/projet_angular"){ 
                     sh "npm install"
                     sh "npm run build"
                     sh "docker build -t front-i ."
@@ -38,7 +38,7 @@ pipeline {
         
         stage ("Run docker compose") {
             steps {
-                dir("meetBoard"){
+                dir("MeetNoote"){
                     sh "docker compose up -d "
                 }
             }
