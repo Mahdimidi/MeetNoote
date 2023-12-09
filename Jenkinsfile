@@ -13,7 +13,7 @@ pipeline {
         
         stage ("Clone repo"){
             steps {
-                sh "git clone https://github.com/Mahdimidi/meetBoard.git"
+                sh "git clone https://github.com/Mahdimidi/MeetNoote.git"
             }
         }
         
