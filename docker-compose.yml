@@ -4,7 +4,7 @@ services:
     image: back-i
     build: ./Back-end Project/app
     ports:
-      - "8081:8081"
+      - "0.0.0.0:8081:8081"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:8000/projet_pds
       - SPRING_DATASOURCE_USERNAME=postgres
@@ -22,7 +22,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - '8000:8000'
+      - '0.0.0.0:8000:8000'
     volumes:
       - projet_pds:/var/lib/postgresql/data
 
