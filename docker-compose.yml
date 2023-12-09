@@ -2,7 +2,7 @@ version: "3"
 services:
   back:
     image: back-i
-    build: ./Back-end Project
+    build: ./Back-end Project/app
     ports:
       - "8081:8081"
     environment:
