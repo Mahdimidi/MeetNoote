@@ -16,16 +16,7 @@ pipeline {
                 sh "git clone https://github.com/Mahdimidi/MeetNoote.git"
             }
         }
-        
-        stage ("Generate meetnote/Back-end Project image") {
-            steps {
-                dir("MeetNoote/Back-end Project"){ 
-                    sh "mvn clean install"
-                    sh "docker build -t back-i ."
-                }
-            }
-        }
-        
+         
         stage ("Generate MeetNoote/projet_angular image") {
             steps {
                 dir("MeetNoote/projet_angular"){ 
@@ -35,6 +26,15 @@ pipeline {
                 }
             }
         }
+        stage ("Generate meetnote/Back-end Project image") {
+            steps {
+                dir("MeetNoote/Back-end Project"){ 
+                    sh "mvn clean install"
+                    sh "docker build -t back-i ."
+                }
+            }
+        }
+       
         
         stage ("Run docker compose") {
             steps {
