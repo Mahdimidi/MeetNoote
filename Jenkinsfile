@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         maven 'maven'
-        nodejs 'NodeJs'
+        nodejs 'node'
     }
     stages {
         stage ("Clean up"){
@@ -13,32 +13,32 @@ pipeline {
         
         stage ("Clone repo"){
             steps {
-                sh "git clone https://github.com/Naouresss/projet_pds_part1.git"
+                sh "git clone https://github.com/Mahdimidi/meetBoard.git"
             }
         }
         
-        stage ("Generate projet_pds_part1/Back-end Project  image") {
+        stage ("Generate meetBoard/Back-end Project image") {
             steps {
-                dir("projet_pds_part1/Back-end Project"){ 
+                dir("meetBoard/Back-end Project"){ 
                     sh "mvn clean install"
-                    sh "docker build -t springboot ."
+                    sh "docker build -t back-i ."
                 }
             }
         }
         
-        stage ("Generate spring-angular/angular-app image") {
+        stage ("Generate meetBoard/projet_angular image") {
             steps {
-                dir("spring-angular/angular-app"){ 
+                dir("meetBoard/projet_angular"){ 
                     sh "npm install"
                     sh "npm run build"
-                    sh "docker build -t angular-app ."
+                    sh "docker build -t front-i ."
                 }
             }
         }
         
         stage ("Run docker compose") {
             steps {
-                dir("spring-angular"){
+                dir("meetBoard"){
                     sh "docker compose up -d "
                 }
             }

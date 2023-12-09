@@ -1,11 +1,11 @@
-# Use a base image with Java 17
+# Étape 1: Utiliser une image de base avec Java 17
 FROM openjdk:17-jdk-alpine as build
+RUN mkdir -p /app
 
-# Expose the port the application will run on
-EXPOSE 8081
+WORKDIR /app
 
-# Copy the built JAR from the build stage
-COPY ./target/projet_Backend-0.0.1-SNAPSHOT.jar app.jar
+COPY target/*.jar /app/app.jar
 
-# Command to execute the application
-ENTRYPOINT ["java","-jar","/app.jar"]
+EXPOSE 8082
+
+CMD ["java", "-jar", "app.jar"]
