@@ -17,9 +17,9 @@ pipeline {
             }
         }
         
-        stage ("Generate meetBoard/Back-end Project/app image") {
+        stage ("Generate meetBoard/Back-end Project image") {
             steps {
-                dir("meetBoard/Back-end Project/app"){ 
+                dir("meetBoard/Back-end Project"){ 
                     sh "mvn clean install"
                     sh "docker build -t back-i ."
                 }
