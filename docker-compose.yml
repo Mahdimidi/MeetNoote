@@ -1,11 +1,10 @@
 version: "3"
 services:
-  # Spring Boot Application
-  spring-boot-app:
-    image: Back-end Project
+  back:
+    image: back-i
     build: ./Back-end Project
     ports:
-      - "0.0.0.0:8081:8081"
+      - "8081:8081"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:8000/projet_pds
       - SPRING_DATASOURCE_USERNAME=postgres
@@ -15,7 +14,6 @@ services:
     depends_on:
       - postgres
 
-  # PostgreSQL Database
   postgres:
     image: postgres:15
     restart: always
@@ -24,12 +22,13 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - '0.0.0.0:8000:8000'
+      - '8000:8000'
     volumes:
       - projet_pds:/var/lib/postgresql/data
 
-  # Angular Frontend Application
   front:
-    image: front_projet_finale
-    build: ./front_projet_finale
+    image: front-i
+    build: ./projet_angular
 
+volumes:
+  projet_pds:
