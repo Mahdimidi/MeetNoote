@@ -17,9 +17,9 @@ pipeline {
             }
         }
          
-        stage ("Generate MeetNoote/projet_angular image") {
+        stage ("Generate MeetNoote/front_projet_finale image") {
             steps {
-                dir("MeetNoote/projet_angular"){ 
+                dir("MeetNoote/front_projet_finale/"){ 
                     sh "npm install"
                     sh "npm run build"
                     sh "docker build -t front-i ."
